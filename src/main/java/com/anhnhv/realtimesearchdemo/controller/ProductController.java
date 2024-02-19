@@ -2,6 +2,7 @@ package com.anhnhv.realtimesearchdemo.controller;
 
 import com.anhnhv.realtimesearchdemo.model.Product;
 import com.anhnhv.realtimesearchdemo.service.ProductsService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Product> createProduct(@RequestBody Product p){
+    public ResponseEntity<Product> createProduct(@RequestBody @Valid Product p){
 
         Product product = productsService.createProduct(p);
 
